@@ -299,6 +299,12 @@
                                  "Name" ,(application-name/version+machine-type)
                                  "Directory" "ProgramMenuDir"
                                  "Arguments" "--core \"[#sbcl.core]\""))))
+           ("Component" ("Id" "SBCL_Dll"
+                         "Guid" ,(make-guid)
+                         "DiskId" 1
+                         #+x86-64 "Win64" #+x86-64 "yes")
+            ("File" ("Name" "libsbcl.dll"
+                     "Source" "../src/runtime/libsbcl.so")))
            ,@(collect-contrib-components)))))
       ("Feature" ("Id" "Minimal"
                   "Title" "SBCL Executable"
@@ -310,6 +316,11 @@
                   ,@(ref-all-components))
        ("Feature" ("Id" "SetPath" "Level" 1 "Title" "Set Environment Variable: PATH")
                   ("ComponentRef" ("Id" "SBCL_SetPATH"))))
+      ("Feature" ("Id" "DLL"
+                  "Title" "SBCL DLL"
+                  "ConfigurableDirectory" "INSTALLDIR"
+                  "Level" 0)
+       ("ComponentRef" ("Id" "SBCL_Dll")))
       ("WixVariable" ("Id" "WixUILicenseRtf"
                       "Value" "License.rtf"))
       ("Property" ("Id" "WIXUI_INSTALLDIR" "Value" "INSTALLDIR"))
