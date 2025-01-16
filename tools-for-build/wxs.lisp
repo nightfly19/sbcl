@@ -314,13 +314,13 @@
        ("ComponentRef" ("Id" "ProgramMenuDir"))
        ("Feature" ("Id" "Contrib" "Level" 1 "Title" "Contributed Modules")
                   ,@(ref-all-components))
+       ("Feature" ("Id" "DLL"
+                   "Title" "libsbcl.dll"
+                   "ConfigurableDirectory" "INSTALLDIR"
+                   "Level" 1)
+       ("ComponentRef" ("Id" "SBCL_Dll")))
        ("Feature" ("Id" "SetPath" "Level" 1 "Title" "Set Environment Variable: PATH")
                   ("ComponentRef" ("Id" "SBCL_SetPATH"))))
-      ("Feature" ("Id" "DLL"
-                  "Title" "SBCL DLL"
-                  "ConfigurableDirectory" "INSTALLDIR"
-                  "Level" 0)
-       ("ComponentRef" ("Id" "SBCL_Dll")))
       ("WixVariable" ("Id" "WixUILicenseRtf"
                       "Value" "License.rtf"))
       ("Property" ("Id" "WIXUI_INSTALLDIR" "Value" "INSTALLDIR"))
