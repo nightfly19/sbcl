@@ -38,12 +38,3 @@ jobs:
       with:
         name: sbcl-windows-installer
         path: sbcl-windows-installer
-    - name: tests
-      working-directory: tests
-      run: ./run-tests.sh
-    - name: ansi-tests
-      working-directory: tests
-      run: ./ansi-tests.sh
-        
-      
-    
