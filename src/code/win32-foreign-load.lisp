@@ -89,8 +89,9 @@
   (let* ((extern (coerce symbol 'base-string))
          (result nil))
     (dolist (handle
-              (cons *runtime-dlhandle*
-                    (mapcar #'shared-object-handle *shared-objects*)))
+              (cons (get-module-handle nil)
+               (cons *runtime-dlhandle*
+                     (mapcar #'shared-object-handle *shared-objects*))))
       (when handle
         (setf result (sap-int (getprocaddress handle extern)))
         (when (not (zerop result))
